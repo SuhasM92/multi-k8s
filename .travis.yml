@@ -5,20 +5,20 @@ services:
  - docker
 
 before_install:
- - docker build -t suhasm92/multi-docker -f ./client/Dockerfile.dev ./client
+ - docker build -t cha0s92/multi-docker -f ./client/Dockerfile.dev ./client
 
 script:
- - docker run -e CI=true suhasm92/multi-docker npm test
+ - docker run -e CI=true cha0s92/multi-docker npm test
 
 after_success:
- - docker build -t suhasm92/multi-client ./client
- - docker build -t suhasm92/multi-nginx ./nginx
- - docker build -t suhasm92/multi-server ./server
- - docker build -t suhasm92/multi-worker ./worker
+ - docker build -t cha0s92/multi-client ./client
+ - docker build -t cha0s92/multi-nginx ./nginx
+ - docker build -t cha0s92/multi-server ./server
+ - docker build -t cha0s92/multi-worker ./worker
  # login to Docker hub
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
  # push image to docker hub
- - docker push suhasm92/multi-client
- - docker push suhasm92/multi-nginx
- - docker push suhasm92/multi-server
- - docker push suhasm92/multi-worker
+ - docker push cha0s92/multi-client
+ - docker push cha0s92/multi-nginx
+ - docker push cha0s92/multi-server
+ - docker push cha0s92/multi-worker
