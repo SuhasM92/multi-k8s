@@ -22,7 +22,7 @@ services:
    - ./server:/app
   environment:
    - REDIS_HOST=redis
-   - REDIS_PORT-6379
+   - REDIS_PORT=6379
    - PGUSER=postgres
    - PGHOST=postgres
    - PGDATABASE=postgres
@@ -39,7 +39,7 @@ services:
  worker:
   environment:
    - REDIS_HOST=redis
-   - REDIS_PORT-6379
+   - REDIS_PORT=6379
   build:
    dockerfile: Dockerfile.dev
    context: ./worker
